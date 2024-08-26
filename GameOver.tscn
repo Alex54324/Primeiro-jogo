@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://h62g0sdseb4g"]
+
+[ext_resource type="Script" path="res://o/GameOver.gd" id="1_f5n3f"]
+[ext_resource type="Texture2D" uid="uid://be6vbrdqbsgu2" path="res://gameover.jpg" id="1_rbs2o"]
+[ext_resource type="Theme" uid="uid://rnxlggkfo1bo" path="res://Assets_aula1/c.tres" id="2_gy8fd"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5n3f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Game_Over_Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -49.0
+offset_right = 211.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rbs2o")
+
+[node name="Restart" type="Button" parent="Game_Over_Title"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 154.0
+offset_right = 251.0
+offset_bottom = 192.0
+theme = ExtResource("2_gy8fd")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="Game_Over_Title/Restart"]
+layout_mode = 0
+offset_left = 25.5
+offset_top = 50.0
+offset_right = 94.5
+offset_bottom = 88.0
+theme = ExtResource("2_gy8fd")
+text = "Quit"
+
+[connection signal="pressed" from="Game_Over_Title/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Game_Over_Title/Restart/Quit" to="." method="_on_quit_pressed"]
